@@ -22,7 +22,7 @@ This project was built with a focus on modern web technologies and smooth, physi
 To run this project on your local machine:
 
 1. Clone the repository:
-   git clone [https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)
+   git clone [[https://github.com/your-username/your-repo-name.git](https://github.com/your-username/your-repo-name.git)](https://github.com/Amber-Tahreem/portfolio.git)
 2.Install dependencies:
 npm install
 3.Start the development server:
