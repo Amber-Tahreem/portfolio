@@ -8,7 +8,6 @@ export default function About() {
       
       {/* 1. Background Image */}
       <div className="absolute inset-0 z-0">
-        {/* Using v2 assuming you renamed the file to bypass the browser cache */}
         <Image
           src="/about-background.jpg" 
           alt="About Background"
@@ -21,19 +20,20 @@ export default function About() {
       </div>
 
       {/* Content Wrapper */}
-      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-5xl gap-12 md:gap-16 mt-12 md:mt-24">
+      <div className="relative z-10 flex flex-col items-center justify-center w-full max-w-5xl gap-10 md:gap-12 mt-12 md:mt-24">
         
-        {/* 2. Glassmorphism Card (Heading Only, Shorter Padding, Orange Shade) */}
+        {/* 2. Glassmorphism Card (Tighter, smaller pill shape) */}
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="relative w-full py-16 md:py-20 px-8 bg-orange-500/10 backdrop-blur-xl border border-orange-500/30 rounded-[3rem] md:rounded-[5rem] flex flex-col items-center justify-center shadow-2xl"
+          // UPDATED: Removed w-full, added w-[90%] on mobile and w-auto on desktop. Reduced padding.
+          className="relative w-[90%] md:w-auto px-8 md:px-24 py-12 md:py-16 bg-orange-500/10 backdrop-blur-xl border border-orange-500/30 rounded-[2rem] md:rounded-[4rem] flex flex-col items-center justify-center shadow-2xl"
         >
           
           {/* Top Left Label */}
-          <div className="absolute top-6 left-8 md:top-8 md:left-12">
+          <div className="absolute top-6 left-6 md:top-8 md:left-8">
             <span className="font-mono text-[10px] md:text-xs tracking-widest text-white/80 uppercase">
               ABOUT ME .01
             </span>
@@ -44,7 +44,8 @@ export default function About() {
             initial={{ opacity: 0, scale: 0.9 }}
             whileInView={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="font-pixel text-6xl md:text-8xl lg:text-[9rem] text-white tracking-widest text-center leading-none mt-4 md:mt-0"
+            // UPDATED: Scaled down text slightly to fit the smaller box
+            className="font-pixel text-5xl md:text-7xl lg:text-8xl text-white tracking-widest text-center leading-none mt-6 md:mt-2"
           >
             ABOUT
           </motion.h2>
