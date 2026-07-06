@@ -36,7 +36,7 @@ export default function Stack() {
           transition={{ delay: 0.2 }}
           className="text-gray-400 text-sm md:text-base leading-relaxed"
         >
-          At the core of my development process, I leverage a robust ecosystem of modern frameworks to engineer scalable backend architectures and cinematic front-end interfaces.
+          At the core of my development process, I leverage a robust ecosystem of modern frameworks to engineer scalable and cinematic front-end interfaces.
         </motion.p>
       </div>
 
