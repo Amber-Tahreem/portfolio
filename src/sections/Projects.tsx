@@ -32,8 +32,8 @@ const projects: Project[] = [
     description: "A comprehensive mobile and web pet care platform featuring a marketplace, e-commerce shop, and veterinary consultation booking.",
     problemSolved: "Consolidated fragmented pet care services into a single, unified digital platform, streamlining both vendor management and user scheduling. Features a seamless integration with a custom ERP system built in Angular.",
     tech: ["React", "Angular", "Spring Boot"],
-    bgGlow: "bg-[#006D77]", 
-    accentText: "text-[#83C5BE]", 
+    bgGlow: "bg-[#006D77]",
+    accentText: "text-[#83C5BE]",
     image: "../petease.jpg",
     links: [
       { label: "Live Demo", url: "https://petease.com.pk" }
@@ -78,13 +78,13 @@ const projects: Project[] = [
     tech: ["React", "Next.js", "Angular", "TypeScript"],
     bgGlow: "bg-blue-600",
     accentText: "text-blue-400",
-    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop", 
+    image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=1000&auto=format&fit=crop",
     links: [
-      { 
-        label: "View Work Proof", 
-        url: "#", 
-        isProofModal: true, 
-        companyUrl: "https://cwiztech.com" 
+      {
+        label: "View Work Proof",
+        url: "#",
+        isProofModal: true,
+        companyUrl: "https://cwiztech.com"
       }
     ]
   }
@@ -126,8 +126,8 @@ export default function Projects() {
   });
 
   return (
-    <section 
-      ref={containerRef} 
+    <section
+      ref={containerRef}
       className="relative w-full bg-[#050505] text-white py-24 md:py-40 px-4 md:px-12 lg:px-24 rounded-[4rem] md:rounded-[10rem] overflow-clip"
     >
       {/* Heading */}
@@ -150,15 +150,15 @@ export default function Projects() {
               key={project.id}
               className="h-screen w-full sticky top-0 flex flex-col items-center justify-center pb-[10vh]"
             >
-              <div 
+              <div
                 className="w-full max-h-[85vh] flex flex-col lg:flex-row bg-[#0c0c0c]/80 backdrop-blur-2xl border border-white/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.4)] relative"
                 style={{ top: `${index * 1.5}rem` }}
               >
-                
+
                 {/* LEFT SIDE: Info Panel */}
                 <div className="w-full lg:w-[55%] p-6 md:p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden">
                   <div className={`absolute -top-32 -left-32 w-96 h-96 opacity-20 blur-[120px] rounded-full pointer-events-none ${project.bgGlow}`} />
-                  
+
                   <div className="relative z-10 flex flex-col gap-4 md:gap-5">
                     <div className="flex items-center gap-4">
                       <span className="font-mono text-xs tracking-widest text-gray-400">PROJECT {project.id}</span>
@@ -191,7 +191,7 @@ export default function Projects() {
 
                     <div className="flex flex-wrap gap-2 mt-1">
                       {project.tech.map((techItem, idx) => (
-                        <span 
+                        <span
                           key={idx}
                           className="bg-[#1a1a1a] border border-white/10 text-gray-300 text-[10px] md:text-xs px-3 py-1.5 rounded-full font-mono tracking-wide"
                         >
@@ -200,18 +200,18 @@ export default function Projects() {
                       ))}
                     </div>
 
-                    {/* Links Rendering Block */}
-                    <div className="flex flex-wrap gap-4 mt-2">
+                    {/* Links Rendering Block - Safe from CSS bounds cutout and fully flexible */}
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mt-3 w-full overflow-visible relative z-20">
                       {project.links.map((link: ProjectLink, idx) => {
                         if (link.videoUrl) {
                           return (
                             <button
                               key={idx}
                               onClick={() => setActiveVideo(link.videoUrl || null)}
-                              className="flex items-center gap-2 text-xs md:text-sm font-bold tracking-wider text-white hover:text-gray-300 transition-colors group cursor-pointer"
+                              className="inline-flex items-center gap-1.5 text-xs md:text-sm font-bold tracking-wider text-white hover:text-gray-300 transition-colors group cursor-pointer shrink-0 bg-white/5 px-3 py-2 rounded-lg md:bg-transparent md:p-0"
                             >
-                              {link.label}
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                              <span>{link.label}</span>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                               </svg>
                             </button>
@@ -227,10 +227,10 @@ export default function Projects() {
                                 setCurrentImgIndex(0);
                                 setCurrentCompanyUrl(link.companyUrl || "");
                               }}
-                              className="flex items-center gap-2 text-xs md:text-sm font-bold tracking-wider text-white hover:text-gray-300 transition-colors group cursor-pointer"
+                              className="inline-flex items-center gap-1.5 text-xs md:text-sm font-bold tracking-wider text-white hover:text-gray-300 transition-colors group cursor-pointer shrink-0 bg-white/5 px-3 py-2 rounded-lg md:bg-transparent md:p-0"
                             >
-                              {link.label}
-                              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                              <span>{link.label}</span>
+                              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                                 <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                               </svg>
                             </button>
@@ -238,15 +238,15 @@ export default function Projects() {
                         }
 
                         return (
-                          <a 
+                          <a
                             key={idx}
                             href={link.url}
                             target="_blank"
                             rel="noopener noreferrer"
-                            className="flex items-center gap-2 text-xs md:text-sm font-bold tracking-wider text-white hover:text-gray-300 transition-colors group"
+                            className="inline-flex items-center gap-1.5 text-xs md:text-sm font-bold tracking-wider text-white hover:text-gray-300 transition-colors group shrink-0 bg-white/5 px-3 py-2 rounded-lg md:bg-transparent md:p-0"
                           >
-                            {link.label}
-                            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
+                            <span>{link.label}</span>
+                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform">
                               <path strokeLinecap="round" strokeLinejoin="round" d="M5 12h14M12 5l7 7-7 7" />
                             </svg>
                           </a>
@@ -259,7 +259,7 @@ export default function Projects() {
                 {/* RIGHT SIDE: Visual Panel */}
                 <div className="w-full lg:w-[45%] relative bg-[#111] border-t lg:border-t-0 lg:border-l border-white/5 min-h-[200px] md:min-h-[300px] lg:min-h-0 flex items-stretch">
                   <div className={`absolute inset-0 opacity-10 bg-gradient-to-br from-transparent to-current ${project.accentText}`} />
-                  
+
                   <div className="absolute inset-4 md:inset-8 lg:inset-10 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
                     <img
                       src={project.image}
@@ -350,7 +350,7 @@ export default function Projects() {
 
               {/* SLIDER DISPLAY CONTAINER - Optimized for perfect image visibility */}
               <div className="relative w-full flex-grow flex items-center justify-center px-4 md:px-14 my-4 h-[55vh] overflow-hidden">
-                
+
                 {/* Arrow Left */}
                 <button
                   onClick={handlePrevImg}
@@ -387,16 +387,15 @@ export default function Projects() {
 
               {/* FOOTER AREA - Re-architected with Clean Monochrome Sidebar Button */}
               <div className="w-full flex items-center justify-between z-10 border-t border-white/5 pt-4">
-                
+
                 {/* Dots Navigation */}
                 <div className="flex gap-2.5">
                   {proofImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImgIndex(index)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        index === currentImgIndex ? "w-6 bg-orange-500" : "w-1.5 bg-white/20"
-                      }`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${index === currentImgIndex ? "w-6 bg-orange-500" : "w-1.5 bg-white/20"
+                        }`}
                     />
                   ))}
                 </div>
