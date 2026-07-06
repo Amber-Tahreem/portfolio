@@ -205,7 +205,7 @@ export default function Hero() {
       {/* Bottom Utility Metadata */}
       <div className="relative z-10 flex justify-between items-end w-full text-[10px] md:text-xs text-gray-400 uppercase tracking-widest mt-12 md:mt-0">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 2.6, duration: 1 }}>
-          Full-Stack Developer
+          FrontEnd Developer
         </motion.div>
         <motion.div
           onClick={() => scrollToSection("about")}
