@@ -151,15 +151,15 @@ export default function Projects() {
               className="h-screen w-full sticky top-0 flex flex-col items-center justify-center pb-[10vh]"
             >
               <div
-                className="w-full max-h-[85vh] flex flex-col lg:flex-row bg-[#0c0c0c]/80 backdrop-blur-2xl border border-white/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.4)] relative"
+                className="w-full h-[82vh] lg:h-auto max-h-[85vh] flex flex-col lg:flex-row bg-[#0c0c0c]/80 backdrop-blur-2xl border border-white/10 rounded-[2rem] md:rounded-[3rem] overflow-hidden shadow-[0_-20px_40px_rgba(0,0,0,0.4)] relative"
                 style={{ top: `${index * 1.5}rem` }}
               >
 
                 {/* LEFT SIDE: Info Panel */}
-                <div className="w-full lg:w-[55%] p-6 md:p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden">
+                <div className="w-full h-[62%] lg:h-auto lg:w-[55%] p-5 md:p-8 lg:p-10 flex flex-col justify-center relative overflow-hidden order-1 lg:order-none">
                   <div className={`absolute -top-32 -left-32 w-96 h-96 opacity-20 blur-[120px] rounded-full pointer-events-none ${project.bgGlow}`} />
 
-                  <div className="relative z-10 flex flex-col gap-4 md:gap-5">
+                  <div className="relative z-10 flex flex-col gap-3 md:gap-5">
                     <div className="flex items-center gap-4">
                       <span className="font-mono text-xs tracking-widest text-gray-400">PROJECT {project.id}</span>
                       <span className={`h-px w-8 md:w-12 bg-current ${project.accentText}`} />
@@ -169,39 +169,40 @@ export default function Projects() {
                     </div>
 
                     <div>
-                      <h3 className="font-sans text-3xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white mb-2 md:mb-3">
+                      <h3 className="font-sans text-2xl md:text-4xl lg:text-5xl font-bold tracking-tighter text-white mb-1 md:mb-3">
                         {project.title}
                       </h3>
-                      <p className="text-gray-300 text-sm leading-relaxed max-w-xl">
+                      <p className="text-gray-300 text-xs md:text-sm leading-relaxed max-w-xl line-clamp-2 lg:line-clamp-none">
                         {project.description}
                       </p>
                     </div>
 
-                    <div className="bg-white/5 border border-white/10 rounded-2xl p-4 backdrop-blur-sm">
-                      <div className="flex items-center gap-2 mb-2">
-                        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={project.accentText}>
+                    {/* KEY HIGHLIGHTS: Mobile par specific height + hidden custom scrollbar, laptop par standard fluid design */}
+                    <div className="bg-white/5 border border-white/10 rounded-2xl p-3 md:p-4 backdrop-blur-sm h-24 sm:h-28 lg:h-auto overflow-y-auto lg:overflow-visible scrollbar-none [scrollbar-width:none] [-ms-overflow-style:none] [&::-webkit-scrollbar]:hidden">
+                      <div className="flex items-center gap-2 mb-1.5 sticky top-0 bg-[#0c0c0c]/5 lg:bg-transparent backdrop-blur-sm lg:backdrop-blur-none z-10">
+                        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className={project.accentText}>
                           <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z" />
                         </svg>
                         <span className={`font-mono text-[10px] md:text-xs uppercase tracking-widest font-bold ${project.accentText}`}>Key Highlight</span>
                       </div>
-                      <p className="text-gray-400 text-xs md:text-sm leading-relaxed">
+                      <p className="text-gray-400 text-xs md:text-sm leading-relaxed pr-1">
                         {project.problemSolved}
                       </p>
                     </div>
 
-                    <div className="flex flex-wrap gap-2 mt-1">
+                    <div className="flex flex-wrap gap-2 mt-0.5">
                       {project.tech.map((techItem, idx) => (
                         <span
                           key={idx}
-                          className="bg-[#1a1a1a] border border-white/10 text-gray-300 text-[10px] md:text-xs px-3 py-1.5 rounded-full font-mono tracking-wide"
+                          className="bg-[#1a1a1a] border border-white/10 text-gray-300 text-[9px] md:text-xs px-2.5 py-1 rounded-full font-mono tracking-wide"
                         >
                           {techItem}
                         </span>
                       ))}
                     </div>
 
-                    {/* Links Rendering Block - Safe from CSS bounds cutout and fully flexible */}
-                    <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mt-3 w-full overflow-visible relative z-20">
+                    {/* Links Rendering Block */}
+                    <div className="flex flex-wrap items-center gap-x-4 gap-y-3 mt-1 w-full overflow-visible relative z-20">
                       {project.links.map((link: ProjectLink, idx) => {
                         if (link.videoUrl) {
                           return (
@@ -257,10 +258,10 @@ export default function Projects() {
                 </div>
 
                 {/* RIGHT SIDE: Visual Panel */}
-                <div className="w-full lg:w-[45%] relative bg-[#111] border-t lg:border-t-0 lg:border-l border-white/5 min-h-[200px] md:min-h-[300px] lg:min-h-0 flex items-stretch">
+                <div className="w-full h-[35%] lg:h-auto lg:w-[45%] relative bg-[#111] border-t lg:border-t-0 lg:border-l border-white/5 min-h-[140px] flex items-stretch order-none lg:order-none">
                   <div className={`absolute inset-0 opacity-10 bg-gradient-to-br from-transparent to-current ${project.accentText}`} />
 
-                  <div className="absolute inset-4 md:inset-8 lg:inset-10 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-white/10 group">
+                  <div className="absolute inset-3 md:inset-8 lg:inset-10 rounded-xl md:rounded-2xl overflow-hidden shadow-2xl border border-white/10 group w-[calc(100%-1.5rem)] h-[calc(100%-1.5rem)] md:w-auto md:h-auto mx-auto my-auto">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -327,7 +328,6 @@ export default function Projects() {
               exit={{ scale: 0.95 }}
               transition={{ type: "spring", damping: 28, stiffness: 300 }}
               onClick={(e) => e.stopPropagation()}
-              // Max width increased to 6xl and height constrained to eliminate layout stretching
               className="relative w-full max-w-6xl h-[85vh] md:h-[80vh] bg-[#0c0c0c]/90 backdrop-blur-2xl border border-orange-500/10 rounded-[2rem] md:rounded-[2.5rem] shadow-[0_25px_60px_-15px_rgba(0,0,0,0.7)] flex flex-col justify-between p-6 md:p-8 overflow-hidden cursor-default"
             >
               {/* Close Button */}
@@ -348,10 +348,8 @@ export default function Projects() {
                 </h3>
               </div>
 
-              {/* SLIDER DISPLAY CONTAINER - Optimized for perfect image visibility */}
+              {/* SLIDER DISPLAY CONTAINER */}
               <div className="relative w-full flex-grow flex items-center justify-center px-4 md:px-14 my-4 h-[55vh] overflow-hidden">
-
-                {/* Arrow Left */}
                 <button
                   onClick={handlePrevImg}
                   className="absolute left-0 z-20 w-11 h-11 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center justify-center text-white font-medium text-lg transition-all duration-300 cursor-pointer shadow-xl"
@@ -359,7 +357,6 @@ export default function Projects() {
                   ←
                 </button>
 
-                {/* Displaying Current Image Container with Max space allocation */}
                 <div className="w-full h-full flex items-center justify-center rounded-xl overflow-hidden relative">
                   <AnimatePresence mode="wait">
                     <motion.img
@@ -370,13 +367,11 @@ export default function Projects() {
                       animate={{ opacity: 1, scale: 1 }}
                       exit={{ opacity: 0, scale: 0.98 }}
                       transition={{ duration: 0.35, ease: "easeInOut" }}
-                      // Object contain used inside high container to ensure full horizontal frame fits cleanly
                       className="w-full h-full object-contain filter drop-shadow-[0_15px_30px_rgba(0,0,0,0.5)]"
                     />
                   </AnimatePresence>
                 </div>
 
-                {/* Arrow Right */}
                 <button
                   onClick={handleNextImg}
                   className="absolute right-0 z-20 w-11 h-11 bg-white/5 hover:bg-white/10 border border-white/10 rounded-full flex items-center justify-center text-white font-medium text-lg transition-all duration-300 cursor-pointer shadow-xl"
@@ -385,22 +380,18 @@ export default function Projects() {
                 </button>
               </div>
 
-              {/* FOOTER AREA - Re-architected with Clean Monochrome Sidebar Button */}
+              {/* FOOTER AREA */}
               <div className="w-full flex items-center justify-between z-10 border-t border-white/5 pt-4">
-
-                {/* Dots Navigation */}
                 <div className="flex gap-2.5">
                   {proofImages.map((_, index) => (
                     <button
                       key={index}
                       onClick={() => setCurrentImgIndex(index)}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${index === currentImgIndex ? "w-6 bg-orange-500" : "w-1.5 bg-white/20"
-                        }`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${index === currentImgIndex ? "w-6 bg-orange-500" : "w-1.5 bg-white/20"}`}
                     />
                   ))}
                 </div>
 
-                {/* Right Aligned Side Button - Beautiful solid Monochrome theme */}
                 {currentCompanyUrl && (
                   <a
                     href={currentCompanyUrl}
