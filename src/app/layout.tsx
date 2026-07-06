@@ -21,7 +21,7 @@ const pixelFont = Press_Start_2P({
 
 export const metadata: Metadata = {
   title: "Portfolio|Amber Tahreem",
-  description: "Full Stack Developer",
+  description: "FrontEnd Developer",
 };
 
 export default function RootLayout({
