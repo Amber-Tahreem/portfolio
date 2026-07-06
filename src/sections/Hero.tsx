@@ -105,48 +105,75 @@ export default function Hero() {
       {/* Main Split-Screen Layout */}
       <div className="relative z-10 grid grid-cols-1 md:grid-cols-2 w-full flex-grow items-center">
 
-        {/* LEFT HALF — Name */}
-        <motion.div
-          style={{ x: nameMagnetic.springX, y: nameMagnetic.springY }}
-          onMouseMove={nameMagnetic.handleMouseMove}
-          onMouseLeave={nameMagnetic.handleMouseLeave}
-          className="flex flex-col justify-center cursor-pointer"
-          initial="hidden"
-          animate="visible"
-          whileHover="hover"
-        >
-          {/* AMBER */}
-          <motion.div variants={writeAmber} className="relative">
-            <h1
-              className="text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel text-white/95"
-              style={{ clipPath: bottomWaveClip }}
-            >
-              AMBER
-            </h1>
-            <motion.h1
-              variants={topWaveVariants}
-              className="absolute top-0 left-0 text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
-            >
-              AMBER
-            </motion.h1>
+        {/* LEFT HALF - Updated Container */}
+        <div className="flex flex-col justify-center">
+
+          {/* 1. Normal Text: IT'S */}
+          <motion.h2
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 0.3 }}
+            className="text-2xl md:text-3xl lg:text-4xl text-white/70 font-sans font-medium mb-2 tracking-widest uppercase"
+          >
+            It's
+          </motion.h2>
+
+          {/* 2. Animated Name */}
+          <motion.div
+            style={{ x: nameMagnetic.springX, y: nameMagnetic.springY }}
+            onMouseMove={nameMagnetic.handleMouseMove}
+            onMouseLeave={nameMagnetic.handleMouseLeave}
+            className="flex flex-col justify-center cursor-pointer w-max"
+            initial="hidden"
+            animate="visible"
+            whileHover="hover"
+          >
+            {/* AMBER */}
+            <motion.div variants={writeAmber} className="relative">
+              <h1
+                className="text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel text-white/95"
+                style={{ clipPath: bottomWaveClip }}
+              >
+                AMBER
+              </h1>
+              <motion.h1
+                variants={topWaveVariants}
+                className="absolute top-0 left-0 text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel bg-gradient-to-r from-red-500 to-orange-400 bg-clip-text text-transparent"
+              >
+                AMBER
+              </motion.h1>
+            </motion.div>
+
+            {/* TAHREEM */}
+            <motion.div variants={writeTahreem} className="relative">
+              <h1
+                className="text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel text-white/95 pb-4"
+                style={{ clipPath: bottomWaveClip }}
+              >
+                TAHREEM
+              </h1>
+              <motion.h1
+                variants={topWaveVariants}
+                className="absolute top-0 left-0 text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent pb-4"
+              >
+                TAHREEM
+              </motion.h1>
+            </motion.div>
           </motion.div>
 
-          {/* TAHREEM */}
-          <motion.div variants={writeTahreem} className="relative">
-            <h1
-              className="text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel text-white/95 pb-4"
-              style={{ clipPath: bottomWaveClip }}
-            >
-              TAHREEM
-            </h1>
-            <motion.h1
-              variants={topWaveVariants}
-              className="absolute top-0 left-0 text-[12vw] md:text-[5vw] lg:text-[4.5vw] whitespace-nowrap leading-[1] font-pixel bg-gradient-to-r from-orange-400 to-red-500 bg-clip-text text-transparent pb-4"
-            >
-              TAHREEM
-            </motion.h1>
-          </motion.div>
-        </motion.div>
+          {/* 3. Normal Text: Frontend Web Developer */}
+          <motion.h3
+            initial={{ opacity: 0, x: -20 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 1, delay: 1.5 }}
+            className="text-xl md:text-2xl text-orange-500/80 font-mono tracking-widest mt-4 uppercase"
+          >
+            Frontend Web Developer
+          </motion.h3>
+
+        </div>
+
+        {/* RIGHT HALF */}
 
         {/* RIGHT HALF */}
         <div className="flex flex-col items-start justify-center md:pl-12 space-y-8 mt-12 md:mt-0">
@@ -230,9 +257,9 @@ export default function Hero() {
           animate={{ opacity: 1 }}
           transition={{ delay: 2.6, duration: 1 }}
         >
-          Full-Stack Developer
+          FrontEnd Developer
         </motion.div>
-        
+
         {/* Scroll Action Added Here */}
         <motion.div
           onClick={() => scrollToSection("about")}

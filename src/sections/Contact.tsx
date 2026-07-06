@@ -26,7 +26,7 @@ export default function Contact() {
             setIsSuccess(true);
             setIsSubmitting(false);
             form.current?.reset();
-            
+
             // Reset success message after 5 seconds
             setTimeout(() => setIsSuccess(false), 5000);
           },
@@ -41,15 +41,15 @@ export default function Contact() {
 
   return (
     <section className="relative w-full bg-[#050505] text-white pt-24 pb-32 md:pt-40 md:pb-40 px-4 md:px-12 lg:px-24 overflow-hidden rounded-[4rem] md:rounded-[10rem]">
-      
+
       {/* Background Ambient Glow */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[80vw] h-[50vh] bg-gradient-to-b from-orange-600/10 to-transparent blur-[120px] pointer-events-none" />
 
       <div className="relative z-10 max-w-7xl mx-auto flex flex-col">
-        
+
         {/* Main Split Content */}
         <div className="flex flex-col lg:flex-row gap-16 lg:gap-24 mb-24 md:mb-32">
-          
+
           {/* LEFT COLUMN: Text & Info */}
           <div className="w-full lg:w-1/2 flex flex-col justify-center">
             <motion.div
@@ -62,11 +62,11 @@ export default function Contact() {
                 <span className="font-mono text-xs tracking-widest text-orange-500">CONTACT .05</span>
                 <span className="h-px w-12 bg-orange-500/50" />
               </div>
-              
+
               <h2 className="font-pixel text-4xl md:text-6xl lg:text-7xl tracking-widest text-left uppercase mb-8 leading-tight">
                 LET'S<br />TALK
               </h2>
-              
+
               <p className="text-gray-400 text-sm md:text-base leading-relaxed max-w-md mb-12">
                 Currently open for new opportunities. Whether you have a question, a project proposal, or just want to connect about frontend architecture and cinematic web experiences, I'll try my best to get back to you!
               </p>
@@ -75,18 +75,18 @@ export default function Contact() {
               <div className="flex flex-col gap-6">
                 <div className="flex flex-col gap-2">
                   <span className="font-mono text-xs text-gray-500 uppercase tracking-widest">Direct Email</span>
-                  <a 
-                    href="mailto:ambertahreem123@gmail.com" 
+                  <a
+                    href="mailto:ambertahreem123@gmail.com"
                     className="font-sans text-xl md:text-2xl font-bold text-white hover:text-orange-400 transition-colors inline-block w-max"
                   >
                     ambertahreem123@gmail.com
                   </a>
                 </div>
-                
+
                 <div className="flex flex-col gap-2">
                   <span className="font-mono text-xs text-gray-500 uppercase tracking-widest">Phone</span>
-                  <a 
-                    href="tel:03425764554" 
+                  <a
+                    href="tel:03425764554"
                     className="font-sans text-xl md:text-2xl font-bold text-white hover:text-orange-400 transition-colors inline-block w-max"
                   >
                     0342 5764554
@@ -110,8 +110,8 @@ export default function Contact() {
               {/* Name Input */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="user_name" className="font-mono text-xs text-gray-400 tracking-widest uppercase ml-2">Name</label>
-                <input 
-                  type="text" 
+                <input
+                  type="text"
                   id="user_name"
                   name="user_name"
                   required
@@ -123,8 +123,8 @@ export default function Contact() {
               {/* Email Input */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="user_email" className="font-mono text-xs text-gray-400 tracking-widest uppercase ml-2">Email</label>
-                <input 
-                  type="email" 
+                <input
+                  type="email"
                   id="user_email"
                   name="user_email"
                   required
@@ -136,7 +136,7 @@ export default function Contact() {
               {/* Message Input */}
               <div className="flex flex-col gap-2">
                 <label htmlFor="message" className="font-mono text-xs text-gray-400 tracking-widest uppercase ml-2">Message</label>
-                <textarea 
+                <textarea
                   id="message"
                   name="message"
                   required
@@ -147,14 +147,13 @@ export default function Contact() {
               </div>
 
               {/* Submit Button */}
-              <button 
+              <button
                 type="submit"
                 disabled={isSubmitting}
-                className={`mt-4 w-full font-bold text-sm py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group ${
-                  isSuccess 
-                    ? "bg-orange-500 text-white" 
+                className={`mt-4 w-full font-bold text-sm py-4 rounded-xl transition-all duration-300 flex items-center justify-center gap-2 group ${isSuccess
+                    ? "bg-orange-500 text-white"
                     : "bg-white text-black hover:bg-orange-500 hover:text-white disabled:opacity-50 disabled:hover:bg-white disabled:hover:text-black"
-                }`}
+                  }`}
               >
                 {isSubmitting ? (
                   "SENDING..."
@@ -179,11 +178,24 @@ export default function Contact() {
           <div className="font-mono text-xs text-gray-500 tracking-widest uppercase">
             © {new Date().getFullYear()} Amber Tahreem. All rights reserved.
           </div>
-          
+
           <div className="flex items-center gap-6">
-            <a href="#" className="font-mono text-xs text-gray-400 hover:text-white transition-colors tracking-widest uppercase">GitHub</a>
-            <a href="#" className="font-mono text-xs text-gray-400 hover:text-white transition-colors tracking-widest uppercase">LinkedIn</a>
-            <a href="#" className="font-mono text-xs text-gray-400 hover:text-white transition-colors tracking-widest uppercase">Twitter</a>
+            <a
+              href="https://github.com/Amber-Tahreem"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-gray-400 hover:text-white transition-colors tracking-widest uppercase"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/amber-tahreem/"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="font-mono text-xs text-gray-400 hover:text-white transition-colors tracking-widest uppercase"
+            >
+              LinkedIn
+            </a>
           </div>
         </div>
 

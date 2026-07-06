@@ -6,26 +6,26 @@ import { motion, AnimatePresence } from "framer-motion";
 const services = [
   {
     id: "01",
-    title: "Full-Stack Engineering",
-    description: "Architecting end-to-end solutions with robust backend systems and seamless database integrations, ensuring scalable and high-performance applications.",
+    title: "Frontend Architecture",
+    description: "Building scalable, component-driven web applications utilizing modern frameworks like React, Next.js, and Angular for high-performance digital ecosystems.",
     image: "https://images.unsplash.com/photo-1605379399642-870262d3d051?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "02",
     title: "Cinematic UI/UX",
-    description: "Crafting digital experiences that elevate brands and engage audiences. Blending high-contrast aesthetics with intuitive, fluid animations.",
+    description: "Crafting immersive digital experiences with advanced CSS animations, glassmorphic interfaces, and physics-driven interactions that elevate user engagement.",
     image: "https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "03",
-    title: "API Architecture",
-    description: "Designing secure, RESTful, and WebSocket-driven APIs that enable real-time communication between your front-end interfaces and complex data layers.",
+    title: "Performance Optimization",
+    description: "Enhancing core web vitals and application speed through efficient rendering, advanced state management, and optimized Next.js architectures.",
     image: "https://images.unsplash.com/photo-1550751827-4bd374c3f58b?q=80&w=800&auto=format&fit=crop",
   },
   {
     id: "04",
-    title: "System Integration",
-    description: "Connecting diverse technology stacks (React, Angular, Spring Boot) into unified ecosystems that operate smoothly and efficiently.",
+    title: "Real-Time Interfaces",
+    description: "Designing dynamic, responsive dashboards and analytics platforms that process and visualize live data streams seamlessly.",
     image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=800&auto=format&fit=crop",
   },
 ];
@@ -51,7 +51,7 @@ export default function Services() {
 
   return (
     <section className="relative min-h-[130vh] w-full bg-[#0a0a0a] text-white flex flex-col items-center justify-center overflow-hidden p-4 py-24 md:p-8 rounded-[4rem] md:rounded-[10rem]">
-      
+
       <motion.h2
         initial={{ opacity: 0, y: -20 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -78,10 +78,10 @@ export default function Services() {
             zIndex = 30;
             opacity = 1;
           } else if (isLeft) {
-            x = -160; 
+            x = -160;
             scale = 0.8;
             zIndex = 20;
-            opacity = 0.7; 
+            opacity = 0.7;
           } else if (isRight) {
             x = 160;
             scale = 0.8;
@@ -93,14 +93,13 @@ export default function Services() {
             <motion.div
               key={service.id}
               onClick={() => handleCardClick(index)}
-              className={`absolute w-[280px] h-[380px] md:w-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl ${
-                !isCenter ? "cursor-pointer hover:brightness-110" : "cursor-default"
-              }`}
+              className={`absolute w-[280px] h-[380px] md:w-[360px] md:h-[480px] rounded-3xl overflow-hidden shadow-2xl ${!isCenter ? "cursor-pointer hover:brightness-110" : "cursor-default"
+                }`}
               initial={false}
               animate={{ x, scale, zIndex, opacity }}
               transition={{
                 duration: 0.8, // Slightly longer duration for a more relaxed, luxurious auto-play feel
-                ease: [0.16, 1, 0.3, 1], 
+                ease: [0.16, 1, 0.3, 1],
               }}
             >
               <img
@@ -116,7 +115,7 @@ export default function Services() {
       <div className="flex flex-col items-center justify-center mt-12 md:mt-16 h-32">
         <AnimatePresence mode="wait">
           <motion.div
-            key={activeIndex} 
+            key={activeIndex}
             initial={{ opacity: 0, y: 15 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -15 }}
@@ -137,7 +136,7 @@ export default function Services() {
 
     </section>
   );
-}   
+}
 /*
 "use client";
 import { useState, useEffect } from "react";

@@ -28,7 +28,7 @@ export default function Navbar() {
       transition={{ delay: 3.5, duration: 1, ease: [0.16, 1, 0.3, 1] }}
     >
       {/* 1. Profile Avatar / Logo Area (Click to scroll to top) */}
-      <div 
+      <div
         onClick={() => scrollToSection("hero")}
         className="relative w-10 h-10 rounded-full bg-gradient-to-br from-orange-500 to-red-600 ml-1 overflow-hidden shrink-0 cursor-pointer hover:scale-105 transition-transform"
       >
@@ -63,7 +63,7 @@ export default function Navbar() {
                     exit={{ opacity: 0, x: "-50%" }}
                     transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   />
-                  
+
                   <motion.div
                     className="absolute -top-12 left-1/2 bg-white text-black text-[9px] px-3 py-1.5 rounded-md shadow-lg whitespace-nowrap pointer-events-none"
                     initial={{ opacity: 0, y: 10, x: "-50%", scale: 0.8 }}
@@ -80,16 +80,40 @@ export default function Navbar() {
         ))}
       </div>
 
-      {/* 3. Contact Button */}
-      <button 
-        onClick={() => scrollToSection("contact")}
-        className="group flex items-center gap-1.5 bg-white text-black px-6 py-3 rounded-full text-[10px] md:text-xs font-bold tracking-widest hover:scale-105 transition-transform mr-1"
-      >
-        CONTACT
-        <span className="inline-block transition-transform duration-300 ease-in-out group-hover:rotate-90 text-sm leading-none">
-          +
-        </span>
-      </button>
-    </motion.nav>
+      {/* 3. Contact & Resume Buttons */}
+      <div className="flex items-center gap-2 mr-1">
+        <a
+          href="/Amber_Tahreem_Resume.pdf"
+          download="Amber_Tahreem_Resume.pdf"
+          className="hidden md:flex items-center gap-2 bg-white/5 border border-white/10 text-white px-5 py-3 rounded-full text-[10px] md:text-xs font-bold tracking-widest hover:bg-white/10 transition-colors group cursor-pointer"
+        >
+          RESUME
+          {/* Download Icon */}
+          <svg
+            width="14"
+            height="14"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            strokeWidth="2.5"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            className="group-hover:translate-y-0.5 transition-transform duration-200"
+          >
+            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" />
+            <polyline points="7 10 12 15 17 10" />
+            <line x1="12" y1="15" x2="12" y2="3" />
+          </svg>
+        </a>
+
+        <button
+          onClick={() => scrollToSection("contact")}
+          className="group flex items-center gap-1.5 bg-white text-black px-6 py-3 rounded-full text-[10px] md:text-xs font-bold tracking-widest hover:scale-105 transition-transform"
+        >
+          CONTACT
+          <span className="inline-block transition-transform duration-300 ease-in-out group-hover:rotate-90 text-sm leading-none">+</span>
+        </button>
+      </div>
+    </motion.nav >
   );
 }
